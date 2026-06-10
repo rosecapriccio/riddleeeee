@@ -1,0 +1,477 @@
+/* =========================================================
+   全体レイアウト（スマホサイズ制限・中央寄せ）
+   ========================================================= */
+.game-layout {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.game-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   Intro & Outro 画面
+   ========================================================= */
+.intro-container, .outro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.game-main-title {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  color: #222222;
+}
+
+.game-subtitle {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 30px;
+}
+
+.story-box {
+  background-color: #f9f9f9;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.story-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444444;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.letter-preview {
+  background-color: #fffdf0;
+  border-left: 4px solid #ebd875;
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.letter-text {
+  font-size: 13px;
+  font-style: italic;
+  color: #555555;
+  text-align: left;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.clear-badge {
+  font-size: 32px;
+  font-weight: bold;
+  color: #4a7c59;
+  margin-bottom: 10px;
+}
+
+.outro-title {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.outro-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ボタン共通 */
+.start-button, .share-button, .reset-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.start-button { background-color: #222222; color: #ffffff; }
+.start-button:hover { background-color: #444444; }
+
+.share-button { background-color: #1da1f2; color: white; }
+.share-button:hover { background-color: #0d8bd9; }
+
+.reset-button { background-color: #e0e0e0; color: #333333; }
+.reset-button:hover { background-color: #d0d0d0; }
+
+
+/* =========================================================
+   Story 画面
+   ========================================================= */
+.story-mode-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-image: url("/assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* キャラクターが表示されるステージ */
+.story-character-stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  min-height: 380px;
+}
+
+.story-character-image {
+  width: 260px;        /* ★どんな画像が来ても、横幅は260pxに固定 */
+  height: 360px;       /* ★どんな画像が来ても、縦幅は360pxに固定 */
+  object-fit: contain; /* ★最重要：画像の縦横比を崩さず、上記の枠内に綺麗に収める */
+  display: block;
+}
+
+/* メッセージウィンドウ全体 */
+.message-window {
+  width: calc(100% - 20px);
+  margin: 10px;
+  height: 140px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid #deff9a; /* シャニマスっぽい色 */
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* 名前のタグ */
+.message-speaker-tag {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  padding: 2px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+.message-speaker-tag.mano { background-color: #ffbad3; color: #333; }
+.message-speaker-tag.hiori { background-color: #144384; color: #fff; }
+.message-speaker-tag.meguru { background-color: #ffe211; color: #333; }
+
+/* テキスト本文 */
+.message-text {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.next-cursor {
+  display: inline-block;
+  margin-left: 10px;
+  animation: blink 1s infinite;
+  color: #deff9a;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* =========================================================
+   問題画面（Question.tsx）
+   ========================================================= */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+/* ステージ上部のインジケーター */
+.stage-indicator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.stage-num {
+  background-color: #333333;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.stage-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 0.5px;
+}
+
+/* 問題画像エリア */
+.image-wrapper {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  display: block;
+}
+
+/* リアルタイム文字数マス目 */
+.answer-boxes-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.char-box {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.char-box.has-letter {
+  border-color: #333333;
+  background-color: #f9f9f9;
+}
+/* ★ エラー（不正解）のときのマス目のスタイル */
+.char-box.is-invalid {
+  border-color: #d9534f;       /* エラーメッセージと同じ赤色 */
+  background-color: #fff5f5;   /* ほんのり薄ピンク背景にして目立たせる */
+  color: #d9534f;              /* 入力されている文字も赤色にする */
+}
+
+/* 入力フォーム（横並び再現） */
+.answer-form {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.answer-input {
+  flex: 1;
+  border: none;
+  padding: 0 12px;
+  font-size: 16px;
+  outline: none;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.answer-input::placeholder {
+  color: #bbbbbb;
+  font-size: 14px;
+}
+
+.submit-button {
+  width: 65px;
+  border: none;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  background-color: #555555;
+}
+
+.error-message {
+  color: #d9534f;
+  font-size: 17px;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+/* =========================================================
+   3段階イルミネヒント演出エリア
+   ========================================================= */
+.hint-section {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px; /* ゲームの全体枠、フォーム幅に合わせてフィット */
+}
+
+.hint-trigger-button {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%; /* スマホで押しやすいように幅いっぱいに */
+}
+
+.hint-trigger-button:hover {
+  background-color: #555555;
+}
+
+.hint-max-notice {
+  font-size: 13px;
+  color: #888888;
+  margin: 0;
+}
+
+.hints-display-container {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* キャラクターのチャット風ふきだし */
+.hint-character-chat {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #fcfcfc;
+  border: 1px solid #eef0f2;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hint-avatar-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.hint-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hint-speech-bubble {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.hint-speaker-name {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* イルミネカラーマッピング */
+.hint-character-chat.mano .hint-speaker-name { background-color: #ffbad3; color: #333333; }
+.hint-character-chat.hiori .hint-speaker-name { background-color: #144384; color: #ffffff; }
+.hint-character-chat.meguru .hint-speaker-name { background-color: #ffe211; color: #333333; }
+
+.hint-text {
+  margin: 0;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   下部進捗（フッターバー）
+   ========================================================= */
+.progress-bar {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #e0e0e0;
+}
+
+.progress-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+  color: #aaaaaa;
+  font-size: 12px;
+}
+
+.progress-tab.active {
+  background-color: #4a7c59;
+  color: #ffffff;
+}
+
+.progress-tab.cleared {
+  background-color: #e8eae6;
+  color: #777777;
+}
