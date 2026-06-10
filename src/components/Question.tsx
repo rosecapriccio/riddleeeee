@@ -64,7 +64,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
 
       <div className="image-wrapper">
         <img
-          src={`/assets/${data.imageName}`}
+          src={`assets/${data.imageName}`}
           alt={data.title}
           className="quiz-image"
         />
@@ -130,7 +130,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
               meguru: "めぐる",
             };
             const displayName = speakerNames[hint.speaker] || "？？？";
-            const charImagePath = `/assets/${hint.speaker}_icon.png`;
+            const charImagePath = `assets/${hint.speaker}_icon.png`;
 
             return (
               <motion.div
