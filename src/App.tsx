@@ -14,6 +14,26 @@ import {
   STAGE_STORY,
 } from "./data/quizzes";
 
+const preloadImages = () => {
+  const imageUrls = [
+    "assets/mano.png",
+    "assets/hiori.png",
+    "assets/meguru.png",
+    "assets/mano_icon.png",
+    "assets/hiori_icon.png",
+    "assets/meguru_icon.png",
+    "assets/q1.png",
+    "assets/q2.png",
+    "assets/q3.png",
+  ];
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+};
+
+preloadImages();
+
 export default function App() {
   // stage 0: 導入, 1〜N: 各問題, 999: クリア画面
   const [stage, setStage] = useState<number>(0);
