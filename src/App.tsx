@@ -25,6 +25,7 @@ const preloadImages = () => {
     "assets/q1.png",
     "assets/q2.png",
     "assets/q3.png",
+    "assets/bg.png",
   ];
   imageUrls.forEach((url) => {
     const img = new Image();
