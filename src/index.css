@@ -1,15 +1,21 @@
+body, html {
+  /* スマホ特有の引っ張りアクション（リロードやバウンド）を無効化 */
+  overscroll-behavior-y: none;
+}
+
 /* =========================================================
    全体レイアウト（スマホサイズ制限・中央寄せ）
    ========================================================= */
 .game-layout {
   max-width: 480px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   position: relative;
+  overflow: hidden;
 }
 
 .game-content {
@@ -389,6 +395,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
+  overflow-y: auto; /* ★ここだけをスクロールさせる */
+  -webkit-overflow-scrolling: touch; /* スマホで滑らかにスクロールさせる魔法 */
 }
 
 /* キャラクターのチャット風ふきだし */
