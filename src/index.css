@@ -1,7 +1,3 @@
-body, html {
-  /* スマホ特有の引っ張りアクション（リロードやバウンド）を無効化 */
-  overscroll-behavior-y: none;
-}
 
 /* =========================================================
    全体レイアウト（スマホサイズ制限・中央寄せ）
@@ -15,7 +11,6 @@ body, html {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   position: relative;
-  overflow: hidden;
 }
 
 .game-content {
