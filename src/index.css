@@ -156,7 +156,7 @@ html, body {
 .story-mode-container {
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-height: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -175,13 +175,13 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 20px;
-  min-height: 380px;
+  padding-bottom: 0px;
+  min-height: 320px;
 }
 
 .story-character-image {
   width: 260px;        /* ★どんな画像が来ても、横幅は260pxに固定 */
-  height: 360px;       /* ★どんな画像が来ても、縦幅は360pxに固定 */
+  height: 320px;       /* ★どんな画像が来ても、縦幅は360pxに固定 */
   object-fit: contain; /* ★最重要：画像の縦横比を崩さず、上記の枠内に綺麗に収める */
   display: block;
 }
@@ -190,7 +190,7 @@ html, body {
 .message-window {
   width: calc(100% - 20px);
   margin: 10px;
-  height: 110px;
+  height: 140px;
   background-color: rgba(0, 0, 0, 0.75);
   border: 2px solid #deff9a; /* シャニマスっぽい色 */
   border-radius: 8px;
