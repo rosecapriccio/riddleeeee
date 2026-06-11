@@ -19,7 +19,7 @@ export interface QuizData {
 export const QUIZ_LIST: QuizData[] = [
   {
     id: 1,
-    title: "Q1",
+    title: "Subtractive",
     imageName: "q1.png",
     answer: "5a742a1142b8ad7c5c53a11a58265130539443ad582de2938ab0a4535b994d90",
     answerLength: "ほ".length,
@@ -34,7 +34,7 @@ export const QUIZ_LIST: QuizData[] = [
   },
   {
     id: 2,
-    title: "Q2",
+    title: "Reminiscence",
     imageName: "q2.png",
     answer: "4443b07363c5402990b358b7400810f70a742a98d39e8d6bf705133bca449dce",
     answerLength: "かびん".length,
@@ -49,7 +49,7 @@ export const QUIZ_LIST: QuizData[] = [
   },
   {
     id: 3,
-    title: "Q3",
+    title: "Diagram",
     imageName: "q3.png",
     answer: "4f75c7738f7053232a7f5c268c73d2488b34e0b955a279e59464eb084628197b",
     answerLength: "あお".length,

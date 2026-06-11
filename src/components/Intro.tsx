@@ -17,7 +17,8 @@ export default function Intro({ onStart }: IntroProps) {
       <div className="intro-container">
         {/* ゲーム全体のタイトル（アイマス風、あるいはサークルやユニット名にちなんだもの） */}
         <h1 className="game-main-title">サクラギ先生からの出題</h1>
-        <p className="game-subtitle">〜 事務所に残された暗号 〜</p>
+        <p></p>
+        {/* <p className="game-subtitle">〜 事務所に残された暗号 〜</p> */}
 
         {/* 導入ストーリーエリア */}
         <div className="story-box">
@@ -46,6 +47,11 @@ export default function Intro({ onStart }: IntroProps) {
           START
         </button>
       </div>
+
+      <p className="copyright-notice">
+        当サイトは『アイドルマスターシャイニーカラーズ』の非公式二次創作 <br />
+        （ファンメイド）ゲームです。公式および関係企業様とは一切関係ありません。
+      </p>
     </motion.div>
   );
 }

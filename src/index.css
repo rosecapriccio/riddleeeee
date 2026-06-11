@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap');
+
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+input::placeholder {
+  font-family: inherit;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffd22e;
+}
 
 /* =========================================================
    全体レイアウト（スマホサイズ制限・中央寄せ）
@@ -9,8 +25,9 @@
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 15px rgba(230, 198, 0, 0.1); /* ほんのり黄色の影 */
   position: relative;
+  font-family: 'Kaisei Decol', serif;
 }
 
 .game-content {
@@ -19,6 +36,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.copyright-notice {
+  font-size: 11px;       /* 主張しすぎないように小さめに */
+  line-height: 1.5;
+  color: #454545;        /* 濃いめのゴールドブラウン（黄色背景でもしっかり読める色） */
+  text-align: center;
+  margin-top: 25px;      /* ボタンとの間隔 */
+  padding: 0 15px;
+  opacity: 0.8;          /* ほんのり透けさせて馴染ませる */
 }
 
 /* =========================================================
@@ -163,7 +190,7 @@
 .message-window {
   width: calc(100% - 20px);
   margin: 10px;
-  height: 140px;
+  height: 110px;
   background-color: rgba(0, 0, 0, 0.75);
   border: 2px solid #deff9a; /* シャニマスっぽい色 */
   border-radius: 8px;
@@ -211,6 +238,39 @@
 }
 
 /* =========================================================
+   Story 画面の中に追加
+   ========================================================= */
+.story-skip-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 20; /* メッセージウィンドウ(10)より前に出す */
+  
+  /* デザイン：半透明のシックなボタン */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px); /* 背景をほんのりぼかすトレンド技 */
+  color: #333333;
+  border: 1px solid rgba(212, 167, 0, 0.4); /* ほんのりゴールド枠 */
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  
+  /* フォントも自動で解星デコールになります */
+}
+
+/* マウスが乗ったとき or スマホでタップしたとき */
+.story-skip-button:hover {
+  background-color: #ffe211; /* イルミネイエローに変身 */
+  border-color: #d4a700;
+  box-shadow: 0 0 10px rgba(255, 226, 17, 0.6);
+  transform: scale(1.05); /* ほんのちょっと大きくしてボタン感を出す */
+}
+
+/* =========================================================
    問題画面（Question.tsx）
    ========================================================= */
 .question-container {
@@ -239,7 +299,7 @@
 }
 
 .stage-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   color: #333333;
   letter-spacing: 0.5px;

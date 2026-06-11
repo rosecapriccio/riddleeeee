@@ -8,16 +8,6 @@ interface StoryProps {
 
 export default function Story({ onFinish }: StoryProps) {
   const [index, setIndex] = useState(0);
-
-  // 次の一言へ進む関数
-  const nextLine = () => {
-    if (index < PROLOGUE_STORY.length - 1) {
-      setIndex((prev) => prev + 1);
-    } else {
-      onFinish(); // 最後まで読んだら終了
-    }
-  };
-
   const currentLine = PROLOGUE_STORY[index];
   const speakerNames = {
     mano: "真乃",
@@ -26,9 +16,26 @@ export default function Story({ onFinish }: StoryProps) {
     none: "",
   };
 
+  const nextLine = () => {
+    if (index < PROLOGUE_STORY.length - 1) {
+      setIndex((prev) => prev + 1);
+    } else {
+      onFinish();
+    }
+  };
+
+  const handleSkip = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onFinish();
+  };
+
   return (
     <div className="story-mode-container" onClick={nextLine}>
-      {/* キャラクター立ち絵エリア（現在の話者を表示） */}
+      <button className="story-skip-button" onClick={handleSkip}>
+        SKIP ≫
+      </button>
+
+      {/* 立ち絵 */}
       <div className="story-character-stage">
         <AnimatePresence mode="wait">
           {currentLine.speaker !== "none" && (

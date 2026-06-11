@@ -113,11 +113,11 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
             className="hint-trigger-button"
           >
             {openedHintCount === 0
-              ? "⚠️ ヒントを見る (0/3)"
+              ? "🕊️ ヒントを見る (0/3)"
               : `🔍 次のヒントを表示 (${openedHintCount}/${data.hints.length})`}
           </button>
         ) : (
-          <p className="hint-max-notice">💡 すべてのヒントを表示しました</p>
+          <p className="hint-max-notice">🥟 すべてのヒントを表示しました 🥟</p>
         )}
 
         <div className="hints-display-container">
