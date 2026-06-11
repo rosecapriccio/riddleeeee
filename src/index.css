@@ -371,6 +371,7 @@ html, body {
 
 .answer-input {
   flex: 1;
+  min-width: 0;
   border: none;
   padding: 0 12px;
   font-size: 16px;
@@ -386,6 +387,7 @@ html, body {
 
 .submit-button {
   width: 65px;
+  flex-shrink: 0;
   border: none;
   background-color: #333333;
   color: #ffffff;
