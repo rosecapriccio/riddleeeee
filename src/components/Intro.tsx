@@ -16,7 +16,11 @@ export default function Intro({ onStart }: IntroProps) {
     >
       <div className="intro-container">
         {/* ゲーム全体のタイトル（アイマス風、あるいはサークルやユニット名にちなんだもの） */}
-        <h1 className="game-main-title">サクラギ先生からの出題</h1>
+        <h1 className="game-main-title">
+          サクラギ先生
+          <br />
+          からの出題
+        </h1>
         <p></p>
         {/* <p className="game-subtitle">〜 事務所に残された暗号 〜</p> */}
 

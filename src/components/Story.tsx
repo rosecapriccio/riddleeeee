@@ -47,7 +47,7 @@ export default function Story({ onFinish }: StoryProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
           )}
         </AnimatePresence>
@@ -58,6 +58,7 @@ export default function Story({ onFinish }: StoryProps) {
         className="message-window"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
       >
         {currentLine.speaker !== "none" && (
           <div className={`message-speaker-tag ${currentLine.speaker}`}>

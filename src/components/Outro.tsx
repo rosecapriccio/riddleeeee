@@ -8,11 +8,13 @@ export default function Outro({ onReset }: OutroProps) {
   // X（旧Twitter）へのシェア機能を実行する関数
   const handleShare = () => {
     const text = encodeURIComponent(
-      "事務所に残されたすべての謎を解き明かした！\nサークル「〇〇」のアイマス謎解きゲームをクリア！",
+      "真乃の謎をすべて解き明かしたよ！\nサークル「〇〇」のアイマス謎解きゲームをクリア！",
     );
     // 本番環境（Vercelなど）で発行されたURLをここに差し替えます
-    const gameUrl = encodeURIComponent("https://your-game-url.vercel.app");
-    const hashtags = encodeURIComponent("SSF10,アイマス謎解き"); // イベントのハッシュタグなど
+    const gameUrl = encodeURIComponent(
+      "https://rosecapriccio.github.io/riddleeeee/",
+    );
+    const hashtags = encodeURIComponent("SSF10"); // イベントのハッシュタグなど
 
     const twitterUrl = `https://twitter.com/share?text=${text}&url=${gameUrl}&hashtags=${hashtags}`;
     window.open(twitterUrl, "_blank", "noreferrer");
@@ -42,14 +44,10 @@ export default function Outro({ onReset }: OutroProps) {
         </p>
       </div>
 
-      {/* アクションボタン群 */}
       <div className="outro-actions">
-        {/* SNSへの拡散ボタン（即売会での認知にめちゃくちゃ効きます） */}
         <button onClick={handleShare} className="share-button">
           結果をX(Twitter)にシェアする
         </button>
-
-        {/* もう一度遊ぶ、またはデータを消して最初に戻るボタン */}
         <button onClick={onReset} className="reset-button">
           タイトルに戻る
         </button>

@@ -5,13 +5,14 @@ import Question from "./components/Question";
 import Outro from "./components/Outro";
 import ProgressBar from "./components/ProgressBar";
 import "./index.css";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   QUIZ_LIST,
   STAGE_INTRO,
   STAGE_CLEAR,
   STAGE_STORY,
+  STAGE_LOADING,
 } from "./data/quizzes";
 
 const preloadImages = () => {
@@ -55,7 +56,14 @@ export default function App() {
       case STAGE_INTRO:
         return <Intro onStart={() => setStage(STAGE_STORY)} />;
       case STAGE_STORY:
-        return <Story onFinish={() => setStage(1)} />;
+        return <Story onFinish={() => handleStoryEnd()} />;
+      case STAGE_LOADING:
+        return (
+          <div className="loading-container">
+            <div className="loading-star">★</div>
+            <p className="loading-text">LOADING...</p>
+          </div>
+        );
       case STAGE_CLEAR:
         return <Outro onReset={() => setStage(STAGE_INTRO)} />;
 
@@ -81,12 +89,33 @@ export default function App() {
     return true;
   };
 
+  const handleStoryEnd = () => {
+    setStage(STAGE_LOADING);
+    setTimeout(() => {
+      setStage(1);
+    }, 2000);
+  };
+
   return (
     <div className="game-layout">
       <main className="game-content">
         <AnimatePresence mode="wait">
-          {/* Framer Motion用に一意の key（stage番号）をセット */}
-          <React.Fragment key={stage}>{renderMainContent()}</React.Fragment>
+          <motion.div
+            key={stage} /* stageが変わるたびに退場・入場アニメを検知させる */
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }} /* 0.5秒かけてじわーっとフェード */
+            style={{
+              width: "100%",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {renderMainContent()}
+          </motion.div>
         </AnimatePresence>
       </main>
 

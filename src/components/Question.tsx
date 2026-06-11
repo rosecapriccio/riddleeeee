@@ -92,7 +92,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
           type="text"
           value={typedAnswer}
           onChange={handleInputChange}
-          placeholder="解答を入力"
+          placeholder="解答を入力 (ひらがな)"
           className="answer-input"
         />
         <button type="submit" className="submit-button">
@@ -113,7 +113,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
             className="hint-trigger-button"
           >
             {openedHintCount === 0
-              ? "🕊️ ヒントを見る (0/3)"
+              ? `🕊️ ヒントを見る (0/${data.hints.length})`
               : `🔍 次のヒントを表示 (${openedHintCount}/${data.hints.length})`}
           </button>
         ) : (

@@ -1,5 +1,6 @@
 export const STAGE_INTRO = 0;
-export const STAGE_STORY = 998;
+export const STAGE_STORY = 997;
+export const STAGE_LOADING = 998;
 export const STAGE_CLEAR = 999;
 
 export interface Hint {
@@ -60,6 +61,21 @@ export const QUIZ_LIST: QuizData[] = [
       },
       { speaker: "hiori", text: "真ん中は七草さんと愛依さんかな 共通点は..." },
       { speaker: "mano", text: "これは新幹線の路線図を表しているよ" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Simplification",
+    imageName: "q1.png",
+    answer: "8e8d612e419cbc402f31168553e5544a8b3a59ac38d99bdce09aec8eecbfcfe7",
+    answerLength: "なつは".length,
+    hints: [
+      {
+        speaker: "meguru",
+        text: "何かの計算結果っぽい？",
+      },
+      { speaker: "mano", text: "うんっ 何かを「割り算」した結果だよ" },
+      { speaker: "hiori", text: "冬優子さんは 12 / 4 ってことか" },
     ],
   },
 ];

@@ -190,7 +190,7 @@ html, body {
 .message-window {
   width: calc(100% - 20px);
   margin: 10px;
-  height: 140px;
+  height: 120px;
   background-color: rgba(0, 0, 0, 0.75);
   border: 2px solid #deff9a; /* シャニマスっぽい色 */
   border-radius: 8px;
@@ -538,4 +538,39 @@ html, body {
 .progress-tab.cleared {
   background-color: #e8eae6;
   color: #777777;
+}
+
+/* =========================================================
+   演出用ローディング画面
+   ========================================================= */
+.loading-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* 統一した内側のパキッとした黄色 */
+  min-height: 400px;
+}
+
+/* くるくる回る星 */
+.loading-star {
+  font-size: 40px;
+  color: #ffe414; /* めぐるイエロー */
+  text-shadow: 0 0 10px rgba(197, 155, 0, 0.6); /* ゴールドに輝く影 */
+  animation: spinStar 1.2s linear infinite; /* 無限に回転 */
+  margin-bottom: 15px;
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #a88300; /* ゴールド */
+  letter-spacing: 3px;
+}
+
+/* 星を回転させるアニメーションの定義 */
+@keyframes spinStar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
