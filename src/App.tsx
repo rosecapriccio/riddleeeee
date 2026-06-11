@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Intro from "./components/Intro";
 import Story from "./components/Story";
 import Question from "./components/Question";
