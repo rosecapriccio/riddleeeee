@@ -15,19 +15,33 @@ import {
   STAGE_LOADING,
 } from "./data/quizzes";
 
+const imageModules = import.meta.glob("/public/assets/*.png", { eager: true });
+
+// const preloadImages = () => {
+//   const imageUrls = [
+//     "assets/mano.png",
+//     "assets/hiori.png",
+//     "assets/meguru.png",
+//     "assets/mano_icon.png",
+//     "assets/hiori_icon.png",
+//     "assets/meguru_icon.png",
+//     "assets/q1.png",
+//     "assets/q2.png",
+//     "assets/q3.png",
+//     "assets/bg.png",
+//   ];
+//   imageUrls.forEach((url) => {
+//     const img = new Image();
+//     img.src = url;
+//   });
+// };
+
 const preloadImages = () => {
-  const imageUrls = [
-    "assets/mano.png",
-    "assets/hiori.png",
-    "assets/meguru.png",
-    "assets/mano_icon.png",
-    "assets/hiori_icon.png",
-    "assets/meguru_icon.png",
-    "assets/q1.png",
-    "assets/q2.png",
-    "assets/q3.png",
-    "assets/bg.png",
-  ];
+  const imageUrls = Object.keys(imageModules).map((path) =>
+    path.replace("/public/", ""),
+  );
+
+  // あとは今まで通り自動でループしてプリロード！
   imageUrls.forEach((url) => {
     const img = new Image();
     img.src = url;
