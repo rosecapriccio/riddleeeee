@@ -10,11 +10,10 @@ export default function Outro({ onReset }: OutroProps) {
     const text = encodeURIComponent(
       "真乃の謎をすべて解き明かしたよ！\nサークル「〇〇」のアイマス謎解きゲームをクリア！",
     );
-    // 本番環境（Vercelなど）で発行されたURLをここに差し替えます
     const gameUrl = encodeURIComponent(
       "https://rosecapriccio.github.io/riddleeeee/",
     );
-    const hashtags = encodeURIComponent("SSF10"); // イベントのハッシュタグなど
+    const hashtags = encodeURIComponent("SSF10");
 
     const twitterUrl = `https://twitter.com/share?text=${text}&url=${gameUrl}&hashtags=${hashtags}`;
     window.open(twitterUrl, "_blank", "noreferrer");
@@ -25,8 +24,6 @@ export default function Outro({ onReset }: OutroProps) {
       <div className="clear-badge">🎉 CLEAR!!</div>
 
       <h2 className="outro-title">作戦大成功！</h2>
-
-      {/* エンディングストーリー */}
       <div className="story-box">
         <p className="story-text">
           最後の答えを導き出したその瞬間、カチャリと事務所のドアが開いた。

@@ -4,7 +4,7 @@ export const STAGE_LOADING = 998;
 export const STAGE_CLEAR = 999;
 
 export interface Hint {
-  speaker: "mano" | "hiori" | "meguru"; // あとで画像ファイル名や名前に変換するため
+  speaker: "mano" | "hiori" | "meguru";
   text: string;
 }
 
@@ -21,7 +21,7 @@ export const QUIZ_LIST: QuizData[] = [
   {
     id: 1,
     title: "Subtractive",
-    imageName: "q1.png",
+    imageName: "riddle1.png",
     answer: "5a742a1142b8ad7c5c53a11a58265130539443ad582de2938ab0a4535b994d90",
     answerLength: "ほ".length,
     hints: [
@@ -36,7 +36,7 @@ export const QUIZ_LIST: QuizData[] = [
   {
     id: 2,
     title: "Reminiscence",
-    imageName: "q2.png",
+    imageName: "riddle4.png",
     answer: "4443b07363c5402990b358b7400810f70a742a98d39e8d6bf705133bca449dce",
     answerLength: "かびん".length,
     hints: [
@@ -66,7 +66,7 @@ export const QUIZ_LIST: QuizData[] = [
   {
     id: 4,
     title: "Simplification",
-    imageName: "q1.png",
+    imageName: "riddle3.png",
     answer: "8e8d612e419cbc402f31168553e5544a8b3a59ac38d99bdce09aec8eecbfcfe7",
     answerLength: "なつは".length,
     hints: [

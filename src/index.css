@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 
 input, button, select, textarea {
   font-family: inherit;
@@ -13,10 +14,17 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #ffd22e;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.15) 20px,
+    rgba(255, 255, 255, 0.15) 40px
+  );
 }
 
 /* =========================================================
-   全体レイアウト（スマホサイズ制限・中央寄せ）
+   全体
    ========================================================= */
 .game-layout {
   max-width: 480px;
@@ -25,7 +33,7 @@ html, body {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 0 0 15px rgba(230, 198, 0, 0.1); /* ほんのり黄色の影 */
+  box-shadow: 0 0 15px rgba(230, 198, 0, 0.1);
   position: relative;
   font-family: 'Kaisei Decol', serif;
 }
@@ -36,16 +44,6 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.copyright-notice {
-  font-size: 11px;       /* 主張しすぎないように小さめに */
-  line-height: 1.5;
-  color: #454545;        /* 濃いめのゴールドブラウン（黄色背景でもしっかり読める色） */
-  text-align: center;
-  margin-top: 25px;      /* ボタンとの間隔 */
-  padding: 0 15px;
-  opacity: 0.8;          /* ほんのり透けさせて馴染ませる */
 }
 
 /* =========================================================
@@ -59,6 +57,47 @@ html, body {
   width: 100%;
   text-align: center;
   padding: 20px 10px;
+}
+
+.intro-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3d2416;
+  letter-spacing: 3px;
+  margin: 30px 0 20px 0;
+  position: relative;
+}
+
+.title-first {
+  color: #ffad1f;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.intro-container .story-text {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #4a3225;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+.text-highlight {
+  color: #c44545;
+  font-weight: bold;
+}
+
+.intro-ribbon {
+  background-color: #3d2416;
+  color: #f7d242;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 6px 40px;
+  margin: 20px 0 40px 0;
+  display: inline-block;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
 }
 
 .game-main-title {
@@ -78,7 +117,7 @@ html, body {
   background-color: #f9f9f9;
   border: 1px solid #eeeeee;
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 40px;
@@ -128,7 +167,6 @@ html, body {
   gap: 12px;
 }
 
-/* ボタン共通 */
 .start-button, .share-button, .reset-button {
   width: 100%;
   padding: 14px;
@@ -149,6 +187,15 @@ html, body {
 .reset-button { background-color: #e0e0e0; color: #333333; }
 .reset-button:hover { background-color: #d0d0d0; }
 
+.copyright-notice {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #454545;
+  text-align: center;
+  margin-top: 25px;
+  padding: 0 15px;
+  opacity: 0.8;
+}
 
 /* =========================================================
    Story 画面
@@ -169,38 +216,45 @@ html, body {
   user-select: none;
 }
 
-/* キャラクターが表示されるステージ */
 .story-character-stage {
-  flex: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 0px;
-  min-height: 320px;
+  /* min-height: 320px; */
+  z-index: 1;
 }
 
 .story-character-image {
-  width: 260px;        /* ★どんな画像が来ても、横幅は260pxに固定 */
-  height: 320px;       /* ★どんな画像が来ても、縦幅は360pxに固定 */
-  object-fit: contain; /* ★最重要：画像の縦横比を崩さず、上記の枠内に綺麗に収める */
+  width: 380px;
+  height: 380px; 
+  object-fit: contain;
+  object-position: bottom;
   display: block;
 }
 
-/* メッセージウィンドウ全体 */
 .message-window {
   width: calc(100% - 20px);
-  margin: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  margin: 0px;
   height: 120px;
   background-color: rgba(0, 0, 0, 0.75);
-  border: 2px solid #deff9a; /* シャニマスっぽい色 */
+  border: 2px solid #deff9a;
   border-radius: 8px;
   padding: 20px;
-  position: relative;
+  /* position: relative; */
   box-sizing: border-box;
   z-index: 10;
 }
 
-/* 名前のタグ */
 .message-speaker-tag {
   position: absolute;
   top: -15px;
@@ -216,7 +270,6 @@ html, body {
 .message-speaker-tag.hiori { background-color: #144384; color: #fff; }
 .message-speaker-tag.meguru { background-color: #ffe211; color: #333; }
 
-/* テキスト本文 */
 .message-text {
   color: #fff;
   font-size: 16px;
@@ -237,20 +290,16 @@ html, body {
   100% { opacity: 0; }
 }
 
-/* =========================================================
-   Story 画面の中に追加
-   ========================================================= */
 .story-skip-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 20; /* メッセージウィンドウ(10)より前に出す */
+  z-index: 20;
   
-  /* デザイン：半透明のシックなボタン */
   background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px); /* 背景をほんのりぼかすトレンド技 */
+  backdrop-filter: blur(4px); 
   color: #333333;
-  border: 1px solid rgba(212, 167, 0, 0.4); /* ほんのりゴールド枠 */
+  border: 1px solid rgba(212, 167, 0, 0.4); 
   padding: 6px 14px;
   font-size: 12px;
   font-weight: bold;
@@ -258,17 +307,15 @@ html, body {
   cursor: pointer;
   letter-spacing: 1px;
   transition: all 0.2s ease;
-  
-  /* フォントも自動で解星デコールになります */
 }
 
-/* マウスが乗ったとき or スマホでタップしたとき */
 .story-skip-button:hover {
-  background-color: #ffe211; /* イルミネイエローに変身 */
+  background-color: #ffe211;
   border-color: #d4a700;
   box-shadow: 0 0 10px rgba(255, 226, 17, 0.6);
-  transform: scale(1.05); /* ほんのちょっと大きくしてボタン感を出す */
+  transform: scale(1.05);
 }
+
 
 /* =========================================================
    問題画面（Question.tsx）
@@ -281,7 +328,6 @@ html, body {
   padding-top: 10px;
 }
 
-/* ステージ上部のインジケーター */
 .stage-indicator {
   display: flex;
   align-items: center;
@@ -305,11 +351,10 @@ html, body {
   letter-spacing: 0.5px;
 }
 
-/* 問題画像エリア */
 .image-wrapper {
   width: 100%;
-  max-width: 320px;
-  margin-bottom: 40px;
+  max-width: 360px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
 }
@@ -318,12 +363,11 @@ html, body {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: 250px;
+  max-height: 300px;
   object-fit: contain;
   display: block;
 }
 
-/* リアルタイム文字数マス目 */
 .answer-boxes-container {
   display: flex;
   justify-content: center;
@@ -351,14 +395,13 @@ html, body {
   border-color: #333333;
   background-color: #f9f9f9;
 }
-/* ★ エラー（不正解）のときのマス目のスタイル */
+
 .char-box.is-invalid {
-  border-color: #d9534f;       /* エラーメッセージと同じ赤色 */
-  background-color: #fff5f5;   /* ほんのり薄ピンク背景にして目立たせる */
-  color: #d9534f;              /* 入力されている文字も赤色にする */
+  border-color: #d9534f; 
+  background-color: #fff5f5;
+  color: #d9534f; 
 }
 
-/* 入力フォーム（横並び再現） */
 .answer-form {
   display: flex;
   width: 100%;
@@ -412,7 +455,7 @@ html, body {
 }
 
 /* =========================================================
-   3段階イルミネヒント演出エリア
+   ヒント
    ========================================================= */
 .hint-section {
   margin-top: 30px;
@@ -420,7 +463,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 300px; /* ゲームの全体枠、フォーム幅に合わせてフィット */
+  max-width: 300px;
 }
 
 .hint-trigger-button {
@@ -433,7 +476,7 @@ html, body {
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s;
-  width: 100%; /* スマホで押しやすいように幅いっぱいに */
+  width: 100%;
 }
 
 .hint-trigger-button:hover {
@@ -452,10 +495,9 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  -webkit-overflow-scrolling: touch; /* スマホで滑らかにスクロールさせる魔法 */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* キャラクターのチャット風ふきだし */
 .hint-character-chat {
   display: flex;
   align-items: flex-start;
@@ -500,7 +542,10 @@ html, body {
   margin-bottom: 6px;
 }
 
-/* イルミネカラーマッピング */
+.hint-character-chat.mano .hint-avatar-wrapper { background-color: #ffbad3; }
+.hint-character-chat.hiori .hint-avatar-wrapper { background-color: #144384; }
+.hint-character-chat.meguru .hint-avatar-wrapper { background-color: #ffe211; }
+
 .hint-character-chat.mano .hint-speaker-name { background-color: #ffbad3; color: #333333; }
 .hint-character-chat.hiori .hint-speaker-name { background-color: #144384; color: #ffffff; }
 .hint-character-chat.meguru .hint-speaker-name { background-color: #ffe211; color: #333333; }
@@ -513,7 +558,7 @@ html, body {
 }
 
 /* =========================================================
-   下部進捗（フッターバー）
+   プログレスバー
    ========================================================= */
 .progress-bar {
   display: flex;
@@ -541,7 +586,7 @@ html, body {
 }
 
 /* =========================================================
-   演出用ローディング画面
+   ローディング画面
    ========================================================= */
 .loading-container {
   flex: 1;
@@ -549,27 +594,25 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff; /* 統一した内側のパキッとした黄色 */
+  background-color: #ffffff;
   min-height: 400px;
 }
 
-/* くるくる回る星 */
 .loading-star {
   font-size: 40px;
-  color: #ffe414; /* めぐるイエロー */
-  text-shadow: 0 0 10px rgba(197, 155, 0, 0.6); /* ゴールドに輝く影 */
-  animation: spinStar 1.2s linear infinite; /* 無限に回転 */
+  color: #ffe414; 
+  text-shadow: 0 0 10px rgba(197, 155, 0, 0.6); 
+  animation: spinStar 1.2s linear infinite;
   margin-bottom: 15px;
 }
 
 .loading-text {
   font-size: 16px;
   font-weight: bold;
-  color: #a88300; /* ゴールド */
+  color: #a88300; 
   letter-spacing: 3px;
 }
 
-/* 星を回転させるアニメーションの定義 */
 @keyframes spinStar {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

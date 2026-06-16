@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { type QuizData } from "../data/quizzes";
 import { motion } from "framer-motion";
-import { convertToHash } from "../hash"; // ★ステップ1で作った関数を読み込む
+import { convertToHash } from "../hash";
 
 interface QuestionProps {
   data: QuizData;
@@ -17,13 +17,12 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
   const maxCharLength = data.answerLength;
   const cells = Array.from({ length: maxCharLength });
 
-  // 入力時のバリデーション（文字数制限）
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     if (value.length <= maxCharLength) {
       setTypedAnswer(value);
-      if (isError) setIsError(false); // 入力し始めたらエラー表示を消す
+      if (isError) setIsError(false);
     }
   };
 
@@ -77,7 +76,6 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
             <motion.div
               key={index}
               className={`char-box ${char ? "has-letter" : ""} ${isError ? "is-invalid" : ""}`}
-              // ★ エラーの瞬間だけ横にガタガタ震わせる
               animate={isError ? { x: [-12, 12, -12, 12, 0] } : { x: 0 }}
               transition={{ duration: 0.4 }}
             >
@@ -102,9 +100,6 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
 
       {isError && <p className="error-message">ちがうですゾ〜</p>}
 
-      {/* ========================================================= */}
-      {/* 3段階ヒントエリア（キャラ立ち絵付き）                        */}
-      {/* ========================================================= */}
       <div className="hint-section">
         {openedHintCount < data.hints.length ? (
           <button
@@ -135,11 +130,10 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
             return (
               <motion.div
                 key={index}
-                className={`hint-character-chat ${hint.speaker}`} // キャラごとのCSS分け用
+                className={`hint-character-chat ${hint.speaker}`}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
               >
-                {/* 左側：キャラクターの丸型アイコン or 立ち絵 */}
                 <div className="hint-avatar-wrapper">
                   <img
                     src={charImagePath}
@@ -147,8 +141,6 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
                     className="hint-avatar"
                   />
                 </div>
-
-                {/* 右側：ネームプレートとセリフ（吹き出し風） */}
                 <div className="hint-speech-bubble">
                   <span className="hint-speaker-name">{displayName}</span>
                   <p className="hint-text">{hint.text}</p>

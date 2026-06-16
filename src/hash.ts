@@ -1,4 +1,4 @@
-// 入力された文字（"こてしらべ" など）を暗号の羅列（SHA-256）に変える関数
+// 入力された文字をハッシュ（SHA-256）に変える
 export async function convertToHash(text: string): Promise<string> {
   const msgUint8 = new TextEncoder().encode(text); // 文字列をバイトデータに変換
   const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8); // ブラウザの機能でSHA-256暗号化

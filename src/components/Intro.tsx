@@ -12,10 +12,9 @@ export default function Intro({ onStart }: IntroProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }} // 初回は少し長めの0.8秒とかにするとエモい
+      transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       <div className="intro-container">
-        {/* ゲーム全体のタイトル（アイマス風、あるいはサークルやユニット名にちなんだもの） */}
         <h1 className="game-main-title">
           サクラギ先生
           <br />
@@ -24,36 +23,44 @@ export default function Intro({ onStart }: IntroProps) {
         <p></p>
         {/* <p className="game-subtitle">〜 事務所に残された暗号 〜</p> */}
 
+        {/* <div className="intro-ribbon">SECOND EDITION</div> */}
+
         {/* 導入ストーリーエリア */}
         <div className="story-box">
+          <h2 className="intro-section-title">
+            <span className="title-first">I</span>NTRODUCTION
+          </h2>
           <p className="story-text">
-            めまぐるしいライブツアーが終わり、久しぶりのオフ。
+            学園祭にてクラスで謎解きカフェを出展した櫻木真乃
+            <br />
+            そんな謎解き作りにハマった真乃が283プロの謎を作ってきた！
+            <br />
+            これはやるしかないだろう　　---メグル・ハチミヤ
+            <br />
           </p>
+          <h2 className="intro-section-title">
+            <span className="title-first">R</span>ULE
+          </h2>
           <p className="story-text">
-            忘れ物を取りに静まり返った事務所へ戻ると、
-            あなたのデスクの上に、見慣れない封筒が置かれていた。
-          </p>
-          <div className="letter-preview">
-            <p className="letter-text">
-              「プロデューサーさんへ。
-              <br />
-              私たちの“次のステージ”へのヒント、ここに置いておきますね」
-            </p>
-          </div>
-          <p className="story-text">
-            中に入っていたのは、いくつかの奇妙な記号が書かれたカード。
-            どうやらアイドルたちからの挑戦状のようだ。
+            ・「アイドルマスターシャイニーカラーズ」の基本的な知識は必要になりますが、コミュやライブの内容は知らなくても解けるようになっています。
+            <br />
+            ・問題は全部で５問あります。所要時間はだいたい１０〜１５分ぐらいだと思います。
+            <br />
+            ・謎の答えは
+            <span className="text-highlight">「ひらがな」</span>
+            で入力してください。
+            <br />
+            ・各問題にヒントが３段階で用意されています。
           </p>
         </div>
 
-        {/* 挑戦開始ボタン */}
         <button onClick={onStart} className="start-button">
           START
         </button>
       </div>
 
       <p className="copyright-notice">
-        当サイトは『アイドルマスターシャイニーカラーズ』の非公式二次創作 <br />
+        当サイトは『アイドルマスターシャイニーカラーズ』の非公式二次創作
         （ファンメイド）ゲームです。公式および関係企業様とは一切関係ありません。
       </p>
     </motion.div>

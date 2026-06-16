@@ -35,13 +35,12 @@ export default function Story({ onFinish }: StoryProps) {
         SKIP ≫
       </button>
 
-      {/* 立ち絵 */}
       <div className="story-character-stage">
         <AnimatePresence mode="wait">
           {currentLine.speaker !== "none" && (
             <motion.img
               key={currentLine.speaker}
-              src={`assets/${currentLine.speaker}.png`}
+              src={`assets/${currentLine.speaker}${currentLine.face}.png`}
               alt="character"
               className="story-character-image"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}

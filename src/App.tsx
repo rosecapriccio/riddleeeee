@@ -37,15 +37,13 @@ const preloadImages = () => {
 preloadImages();
 
 export default function App() {
-  // stage 0: 導入, 1〜N: 各問題, 999: クリア画面
   const [stage, setStage] = useState<number>(0);
 
   const totalQuestions = QUIZ_LIST.length;
 
-  // 正解したときに次のページへ遷移させる関数
   const handleNextStage = () => {
     if (stage === totalQuestions) {
-      setStage(STAGE_CLEAR); // 最終問題をクリアしたらエンディングへ
+      setStage(STAGE_CLEAR);
     } else {
       setStage(stage + 1);
     }
@@ -68,7 +66,6 @@ export default function App() {
         return <Outro onReset={() => setStage(STAGE_INTRO)} />;
 
       default:
-        // 1 〜 N 問目の問題画面
         return (
           <Question
             data={QUIZ_LIST[stage - 1]}
@@ -101,11 +98,11 @@ export default function App() {
       <main className="game-content">
         <AnimatePresence mode="wait">
           <motion.div
-            key={stage} /* stageが変わるたびに退場・入場アニメを検知させる */
+            key={stage}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }} /* 0.5秒かけてじわーっとフェード */
+            transition={{ duration: 0.5 }}
             style={{
               width: "100%",
               flex: 1,
