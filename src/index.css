@@ -16,8 +16,8 @@ html, body {
   background-color: #ffd22e;
   background-image: repeating-linear-gradient(
     45deg,
-    transparent,
-    transparent 20px,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 20px,
     rgba(255, 255, 255, 0.15) 20px,
     rgba(255, 255, 255, 0.15) 40px
   );
