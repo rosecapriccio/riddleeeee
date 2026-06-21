@@ -24,6 +24,11 @@ export default function Outro({ onReset }: OutroProps) {
       <div className="clear-badge">🎉 CLEAR!!</div>
 
       <h2 className="outro-title">作戦大成功！</h2>
+
+      <div className="image-wrapper">
+        <img src="assets/ending.png" alt="ending" className="quiz-image" />
+      </div>
+
       <div className="story-box">
         <p className="story-text">
           最後の答えを導き出したその瞬間、カチャリと事務所のドアが開いた。

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { type QuizData } from "../data/quizzes";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { convertToHash } from "../hash";
 
 interface QuestionProps {
@@ -13,6 +13,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
   const [isError, setIsError] = useState<boolean>(false);
 
   const [openedHintCount, setOpenedHintCount] = useState<number>(0);
+  const [showSuccessEffect, setShowSuccessEffect] = useState(false);
 
   const maxCharLength = data.answerLength;
   const cells = Array.from({ length: maxCharLength });
@@ -30,13 +31,16 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
     e.preventDefault();
     const typedHashAnswer = await convertToHash(typedAnswer);
 
-    console.log(typedHashAnswer);
-    console.log(data.answer);
-    console.log(" a ");
+    // console.log(typedHashAnswer);
+    // console.log(data.answer);
+    // console.log(" a ");
     if (typedHashAnswer === data.answer) {
-      setIsError(false);
-      setTypedAnswer("");
-      onCorrectAnswer();
+      setShowSuccessEffect(true);
+      setTimeout(() => {
+        setIsError(false);
+        setTypedAnswer("");
+        onCorrectAnswer();
+      }, 4000);
     } else {
       setIsError(true);
     }
@@ -150,6 +154,29 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
           })}
         </div>
       </div>
+      <AnimatePresence>
+        {showSuccessEffect && (
+          <motion.div
+            className="success-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="success-badge"
+              initial={{ scale: 0, rotate: -20 }}
+              animate={{
+                scale: [0, 1.2, 1],
+                rotate: [-20, 10, 0],
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <div className="success-stars">⭐️⭐️⭐️</div>
+              <div className="success-text">正解！</div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

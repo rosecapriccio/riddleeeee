@@ -35,7 +35,7 @@ export default function Intro({ onStart }: IntroProps) {
             <br />
             そんな謎解き作りにハマった真乃が283プロの謎を作ってきた！
             <br />
-            これはやるしかないだろう　　---メグル・ハチミヤ
+            これはやるしかないだろう　---メグル・ハチミヤ
             <br />
           </p>
           <h2 className="intro-section-title">
