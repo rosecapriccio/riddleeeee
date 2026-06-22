@@ -21,30 +21,23 @@ export default function Outro({ onReset }: OutroProps) {
 
   return (
     <div className="outro-container">
-      <div className="clear-badge">🎉 CLEAR!!</div>
-
-      <h2 className="outro-title">作戦大成功！</h2>
+      <div className="clear-badge">〜CLEAR〜</div>
 
       <div className="image-wrapper">
         <img src="assets/ending.png" alt="ending" className="quiz-image" />
       </div>
 
-      <div className="story-box">
-        <p className="story-text">
-          最後の答えを導き出したその瞬間、カチャリと事務所のドアが開いた。
-        </p>
-        <p className="story-text">
-          「あ！プロデューサーさん、本当に全部解いちゃったんですか！？」
-        </p>
-        <p className="story-text">
-          ひょっこり顔を出したアイドルたちの手には、
-          サプライズツアーの特製ケーキが握られている。
-        </p>
-        <p className="story-text">
-          どうやら、日頃の感謝を込めた彼女たちなりの悪戯だったようだ。
-          プロデューサーの最高の休日が、ここから始まる――。
-        </p>
-      </div>
+      <h2 className="outro-title">
+        おめでとう！
+        <br />
+        全ての謎を解き明かしたよ！
+      </h2>
+
+      {/* <div className="story-box">
+        <p className="story-text">真乃「すごいね」</p>
+        <p className="story-text">灯織「」</p>
+        <p className="story-text">めぐる「真面目かっ」</p>
+      </div> */}
 
       <div className="outro-actions">
         <button onClick={handleShare} className="share-button">

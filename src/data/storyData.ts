@@ -10,53 +10,63 @@ export const PROLOGUE_STORY: DialogueLine[] = [
     text: "〜283プロのレッスンルーム〜",
   },
   {
-    speaker: "mano",
-    face: 1,
-    text: "この前の学園祭で謎解きカフェをやったときに、謎を考えるのにハマっちゃって・・・",
-  },
-  {
-    speaker: "mano",
-    face: 2,
-    text: "283プロの謎を考えたんだ よければやってみない？",
-  },
-  {
     speaker: "hiori",
     face: 1,
-    text: "へぇ・・・すごいね真乃",
+    text: "えっ 謎解き？",
   },
   {
-    speaker: "meguru",
+    speaker: "mano",
     face: 2,
-    text: "面白そう！解いてみたい！」",
+    text: "う、うんっ",
   },
   {
     speaker: "mano",
     face: 1,
-    text: "うん！ふつつかものですがよければ・・・",
+    text: "この前の学園祭で謎解きカフェをやってから 謎解きを考えるのにハマっちゃって...",
   },
   {
-    speaker: "hiori",
+    speaker: "mano",
     face: 2,
-    text: "それちょっと違くない？",
-  },
-  {
-    speaker: "meguru",
-    face: 1,
-    text: "難しそうだなあ",
-  },
-  {
-    speaker: "meguru",
-    face: 2,
-    text: "協力形式でいいよね？灯織",
+    text: "それでね、283プロの謎解きも何問か考えたんだ",
   },
   {
     speaker: "hiori",
     face: 3,
-    text: "いいよ がんばろう",
+    text: "へぇ... すごいね真乃",
+  },
+  {
+    speaker: "meguru",
+    face: 2,
+    text: "面白そう！ やってみたい！",
+  },
+  {
+    speaker: "mano",
+    face: 2,
+    text: "うんっ これなんだけど...",
+  },
+  {
+    speaker: "meguru",
+    face: 2,
+    text: "よーし灯織！どっちが先に解けるか勝負しよう！",
   },
   {
     speaker: "mano",
     face: 1,
-    text: "全部で５問あるんだ 難しかったらヒントもあるからね",
+    text: "もしかしたら結構難しいのもあるかも...",
+  },
+  {
+    speaker: "meguru",
+    face: 1,
+    text: "灯織...！ 協力しよう...！",
+  },
+  {
+    speaker: "hiori",
+    face: 2,
+    text: "・・・",
+  },
+  {
+    speaker: "mano",
+    face: 1,
+    text: "難しかったらヒントもあるからね",
   },
 ];
