@@ -6,9 +6,14 @@ import { convertToHash } from "../hash";
 interface QuestionProps {
   data: QuizData;
   onCorrectAnswer: () => void;
+  onUseHint: () => void;
 }
 
-export default function Question({ data, onCorrectAnswer }: QuestionProps) {
+export default function Question({
+  data,
+  onCorrectAnswer,
+  onUseHint,
+}: QuestionProps) {
   const [typedAnswer, setTypedAnswer] = useState<string>("");
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -40,7 +45,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
         setIsError(false);
         setTypedAnswer("");
         onCorrectAnswer();
-      }, 4000);
+      }, 1500);
     } else {
       setIsError(true);
     }
@@ -49,6 +54,7 @@ export default function Question({ data, onCorrectAnswer }: QuestionProps) {
   const handleRevealHint = () => {
     if (openedHintCount < data.hints.length) {
       setOpenedHintCount((prev) => prev + 1);
+      onUseHint();
     }
   };
 

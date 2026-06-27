@@ -17,31 +17,11 @@ import {
 
 const imageModules = import.meta.glob("/public/assets/*.png", { eager: true });
 
-// const preloadImages = () => {
-//   const imageUrls = [
-//     "assets/mano.png",
-//     "assets/hiori.png",
-//     "assets/meguru.png",
-//     "assets/mano_icon.png",
-//     "assets/hiori_icon.png",
-//     "assets/meguru_icon.png",
-//     "assets/q1.png",
-//     "assets/q2.png",
-//     "assets/q3.png",
-//     "assets/bg.png",
-//   ];
-//   imageUrls.forEach((url) => {
-//     const img = new Image();
-//     img.src = url;
-//   });
-// };
-
 const preloadImages = () => {
   const imageUrls = Object.keys(imageModules).map((path) =>
     path.replace("/public/", ""),
   );
 
-  // あとは今まで通り自動でループしてプリロード！
   imageUrls.forEach((url) => {
     const img = new Image();
     img.src = url;
@@ -52,7 +32,7 @@ preloadImages();
 
 export default function App() {
   const [stage, setStage] = useState<number>(0);
-
+  const [totalHints, setTotalHints] = useState<number>(0);
   const totalQuestions = QUIZ_LIST.length;
 
   const handleNextStage = () => {
@@ -61,6 +41,22 @@ export default function App() {
     } else {
       setStage(stage + 1);
     }
+  };
+
+  const handleHintCount = () => {
+    setTotalHints((prev) => prev + 1);
+  };
+
+  const handleReset = () => {
+    setStage(STAGE_INTRO);
+    setTotalHints(0);
+  };
+
+  const handleStoryEnd = () => {
+    setStage(STAGE_LOADING);
+    setTimeout(() => {
+      setStage(1);
+    }, 2000);
   };
 
   const renderMainContent = () => {
@@ -77,13 +73,14 @@ export default function App() {
           </div>
         );
       case STAGE_CLEAR:
-        return <Outro onReset={() => setStage(STAGE_INTRO)} />;
+        return <Outro onReset={handleReset} totalHints={totalHints} />;
 
       default:
         return (
           <Question
             data={QUIZ_LIST[stage - 1]}
             onCorrectAnswer={handleNextStage}
+            onUseHint={handleHintCount}
           />
         );
     }
@@ -98,13 +95,6 @@ export default function App() {
       return false;
     }
     return true;
-  };
-
-  const handleStoryEnd = () => {
-    setStage(STAGE_LOADING);
-    setTimeout(() => {
-      setStage(1);
-    }, 2000);
   };
 
   return (

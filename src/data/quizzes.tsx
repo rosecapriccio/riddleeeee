@@ -25,12 +25,12 @@ export const QUIZ_LIST: QuizData[] = [
     answer: "5a742a1142b8ad7c5c53a11a58265130539443ad582de2938ab0a4535b994d90",
     answerLength: "ほ".length,
     hints: [
-      {
-        speaker: "hiori",
-        text: "283プロに関する何かの頭文字かな",
-      },
       { speaker: "meguru", text: "ユニット名の頭文字じゃないかな！？" },
       { speaker: "mano", text: "ユニットのカラーが関係しているよ" },
+      {
+        speaker: "hiori",
+        text: "「＋」はカラーが混ざるという意味...？",
+      },
     ],
   },
   {

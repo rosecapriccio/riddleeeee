@@ -25,7 +25,6 @@ export default function Intro({ onStart }: IntroProps) {
 
         {/* <div className="intro-ribbon">SECOND EDITION</div> */}
 
-        {/* 導入ストーリーエリア */}
         <div className="story-box">
           <h2 className="intro-section-title">
             <span className="title-first">I</span>NTRODUCTION
