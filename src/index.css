@@ -56,7 +56,7 @@ html, body {
   justify-content: center;
   width: 100%;
   text-align: center;
-  padding: 20px 10px;
+  padding: 10px 10px;
 }
 
 .intro-section-title {
@@ -64,7 +64,7 @@ html, body {
   font-weight: 700;
   color: #3d2416;
   letter-spacing: 3px;
-  margin: 30px 0 20px 0;
+  margin: 15px 0 15px 0;
   position: relative;
 }
 
@@ -79,7 +79,7 @@ html, body {
   line-height: 1.8;
   color: #4a3225;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   letter-spacing: 0.5px;
 }
 
@@ -101,10 +101,30 @@ html, body {
 }
 
 .game-main-title {
-  font-size: 28px;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
-  color: #222222;
+  color: #ffe211; 
+  font-family: 'Chewy', system-ui; 
+  font-size: 32px;  
+  letter-spacing: 3px; 
+  line-height: 1.1; 
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow:
+    -1.5px -1.5px 0 #ffffff,
+     1.5px -1.5px 0 #ffffff,
+    -1.5px  1.5px 0 #ffffff,
+     1.5px  1.5px 0 #ffffff,
+     0px    -1.5px 0 #ffffff,
+     0px     1.5px 0 #ffffff,
+    -1.5px  0px    0 #ffffff,
+     1.5px  0px    0 #ffffff,
+    -3px -3px 0 #3d2416,
+     3px -3px 0 #3d2416,
+    -3px  3px 0 #3d2416,
+     3px  3px 0 #3d2416,
+     0px    -3px 0 #3d2416,
+     0px     3px 0 #3d2416,
+    -3px  0px    0 #3d2416,
+     3px  0px    0 #3d2416;
 }
 
 .game-subtitle {
@@ -149,7 +169,7 @@ html, body {
 }
 
 .clear-badge {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #4a7c59;
   margin-bottom: 10px;
@@ -178,8 +198,8 @@ html, body {
   transition: background 0.2s;
 }
 
-.start-button { background-color: #222222; color: #ffffff; }
-.start-button:hover { background-color: #444444; }
+.start-button { background-color: #471e11; color: #ffffff; }
+.start-button:hover { background-color: #613922; }
 
 .share-button { background-color: #1da1f2; color: white; }
 .share-button:hover { background-color: #0d8bd9; }
@@ -364,6 +384,14 @@ html, body {
   max-width: 100%;
   height: auto;
   max-height: 300px;
+  object-fit: contain;
+  display: block;
+}
+
+.title-image {
+  width: auto;
+  max-width: 80%;
+  height: auto;
   object-fit: contain;
   display: block;
 }
