@@ -14,17 +14,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #ffd22e;
-  background-image: linear-gradient(
-  45deg,
-  rgba(255, 255, 255, 0.15) 25%,
-  rgba(255, 255, 255, 0) 25%,
-  rgba(255, 255, 255, 0) 50%,
-  rgba(255, 255, 255, 0.15) 50%,
-  rgba(255, 255, 255, 0.15) 75%,
-  rgba(255, 255, 255, 0) 75%,
-  rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 40px 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M-10,10 l20,-20 M0,40 l40,-40 M30,50 l20,-20' stroke='%23ffffff' stroke-width='10' opacity='0.15'/%3E%3C/svg%3E");
 }
 
 /* =========================================================
