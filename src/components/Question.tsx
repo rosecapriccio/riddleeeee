@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { type QuizData } from "../data/quizzes";
 import { motion, AnimatePresence } from "framer-motion";
 import { convertToHash } from "../hash";
@@ -21,6 +21,11 @@ export default function Question({
   const [openedHintCount, setOpenedHintCount] = useState<number>(0);
   const [showSuccessEffect, setShowSuccessEffect] = useState(false);
 
+  const startTime = useRef<number>(0);
+  useEffect(() => {
+    startTime.current = Date.now();
+  }, []);
+
   const maxCharLength = data.answerLength;
   const cells = Array.from({ length: maxCharLength });
 
@@ -41,6 +46,15 @@ export default function Question({
     // console.log(data.answer);
     // console.log(" a ");
     if (typedHashAnswer === data.answer) {
+      const endTime = Date.now();
+      // console.log("s", startTime.current);
+      // console.log("e", endTime);
+      // console.log("t", Math.floor((endTime - startTime.current) / 1000));
+      const takenTime = Math.floor((endTime - startTime.current) / 1000);
+      ReactGA.event("question_correct", {
+        question_number: `第${data.id}問`,
+        time_taken_seconds: takenTime,
+      });
       setShowSuccessEffect(true);
       setTimeout(() => {
         setIsError(false);
@@ -58,6 +72,7 @@ export default function Question({
       onUseHint();
       ReactGA.event("use_hint", {
         question_number: `第${data.id}問`,
+        hint_level: openedHintCount,
       });
     }
   };

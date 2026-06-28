@@ -30,18 +30,19 @@ export default function Intro({ onStart }: IntroProps) {
 
         <div className="story-box">
           <h2 className="intro-section-title">
-            <span className="title-first">I</span>NTRODUCTION
+            <span className="title-first">あ</span>らすじ
           </h2>
           <p className="story-text">
-            学園祭にてクラスで謎解きカフェを出展した櫻木真乃
+            学園祭のクラスの出し物で「謎解きカフェ」を出展した真乃
             <br />
-            そんな謎解き作りにハマった真乃が283プロの謎を作ってきた！
+            そんな謎解き作りにハマった真乃が、今度は283プロの謎を作ってきてくれたみたいですよ
             <br />
+            灯織・めぐると一緒に真乃の謎に挑戦してみよう！
             {/* やりたい！
             <br /> */}
           </p>
           <h2 className="intro-section-title">
-            <span className="title-first">R</span>ULE
+            <span className="title-first">あ</span>そびかた
           </h2>
           <p className="story-text">
             ・「アイドルマスターシャイニーカラーズ」の基本的な知識は必要になりますが、コミュやライブの内容は知らなくても解けるようになっています。
@@ -64,6 +65,9 @@ export default function Intro({ onStart }: IntroProps) {
       <p className="copyright-notice">
         当サイトは『アイドルマスターシャイニーカラーズ』の非公式二次創作
         （ファンメイド）ゲームです。公式および関係企業様とは一切関係ありません。
+        <br />
+        <br />
+        当サイトはGoogleAnalyticsを利用し、謎解き時間やヒント使用率をCookieを用いた個人を特定しない匿名の形で収集しています。あらかじめご了承ください。
       </p>
     </motion.div>
   );

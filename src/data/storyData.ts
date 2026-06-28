@@ -7,7 +7,7 @@ export interface DialogueLine {
 export const PROLOGUE_STORY: DialogueLine[] = [
   {
     speaker: "none",
-    text: "〜283プロのレッスンルーム〜",
+    text: "〜283プロの事務所〜",
   },
   {
     speaker: "hiori",
@@ -22,12 +22,12 @@ export const PROLOGUE_STORY: DialogueLine[] = [
   {
     speaker: "mano",
     face: 1,
-    text: "この前の学園祭で謎解きカフェをやってから 謎解きを考えるのにハマっちゃって...",
+    text: "この前の学園祭で謎解きカフェをしてから 謎解きを考えるのが楽しくなっちゃって...",
   },
   {
     speaker: "mano",
     face: 2,
-    text: "それでね、283プロの謎解きも何問か考えたんだ",
+    text: "それでね、283プロにからめた謎解きも何問か考えたんだ",
   },
   {
     speaker: "hiori",
