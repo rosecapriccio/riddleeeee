@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { type QuizData } from "../data/quizzes";
 import { motion, AnimatePresence } from "framer-motion";
 import { convertToHash } from "../hash";
+import ReactGA from "react-ga4";
 
 interface QuestionProps {
   data: QuizData;
@@ -55,6 +56,9 @@ export default function Question({
     if (openedHintCount < data.hints.length) {
       setOpenedHintCount((prev) => prev + 1);
       onUseHint();
+      ReactGA.event("use_hint", {
+        question_number: `第${data.id}問`,
+      });
     }
   };
 
