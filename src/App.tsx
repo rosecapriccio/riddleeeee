@@ -6,6 +6,7 @@ import Outro from "./components/Outro";
 import ProgressBar from "./components/ProgressBar";
 import "./index.css";
 import { AnimatePresence, motion } from "framer-motion";
+import ReactGA from "react-ga4";
 
 import {
   QUIZ_LIST,
@@ -14,6 +15,8 @@ import {
   STAGE_STORY,
   STAGE_LOADING,
 } from "./data/quizzes";
+
+ReactGA.initialize("G-CJSG9V0TC2");
 
 const imageModules = import.meta.glob("/public/assets/*.png", { eager: true });
 
