@@ -4,7 +4,8 @@
 
 ## 概要
 ・SPAの謎解きゲームサイトです  
-リンク:  
+### 🎮 公開URL
+**[https://rosecapriccio.github.io/riddleeeee/](https://rosecapriccio.github.io/riddleeeee/)**
 
 ・問題は全部で5問あります。所要時間はだいたい10〜20分ぐらいだと思います。  
 ・謎の答えは「ひらがな」で入力してください。  
