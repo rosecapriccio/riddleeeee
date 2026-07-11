@@ -37,7 +37,8 @@ export default function Outro({ onReset, totalHints }: OutroProps) {
         <p>
           🥟 使ったヒント数： <strong>{totalHints}</strong> 回 🥟
         </p>
-        {totalHints === 0 && <p>👆 すごすぎる！ 👆</p>}
+        {totalHints === 0 && <p>👆 すごすぎる！天才！ 👆</p>}
+        {totalHints > 0 && totalHints < 6 && <p>👆 すごい！ 👆</p>}
       </div>
       {/* <div className="story-box">
         <p className="story-text">真乃「すごいね」</p>

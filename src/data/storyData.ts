@@ -51,7 +51,7 @@ export const PROLOGUE_STORY: DialogueLine[] = [
   },
   {
     speaker: "mano",
-    face: 1,
+    face: 3,
     text: "もしかしたら結構難しいのもあるかも...",
   },
   {

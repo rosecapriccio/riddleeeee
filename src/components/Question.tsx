@@ -51,10 +51,14 @@ export default function Question({
       // console.log("e", endTime);
       // console.log("t", Math.floor((endTime - startTime.current) / 1000));
       const takenTime = Math.floor((endTime - startTime.current) / 1000);
-      ReactGA.event("question_correct", {
-        question_number: `第${data.id}問`,
-        time_taken_seconds: takenTime,
-      });
+
+      //15秒未満の正解はおそらく強くてニューゲーム野郎なので計上しない
+      if (takenTime >= 15) {
+        ReactGA.event("question_correct", {
+          question_number: `第${data.id}問`,
+          time_taken_seconds: takenTime,
+        });
+      }
       setShowSuccessEffect(true);
       setTimeout(() => {
         setIsError(false);

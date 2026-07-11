@@ -67,6 +67,9 @@ export default function Intro({ onStart }: IntroProps) {
         （ファンメイド）ゲームです。公式および関係企業様とは一切関係ありません。
         <br />
         <br />
+        周りの方へのURL共有やゲーム実況等は大歓迎です。SNS等で答えを直接書き込むのはご遠慮ください。
+        <br />
+        <br />
         当サイトはGoogleAnalyticsを利用し、謎解き時間やヒント使用率をCookieを用いた個人を特定しない匿名の形で収集しています。あらかじめご了承ください。
       </p>
     </motion.div>

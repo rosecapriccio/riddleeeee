@@ -44,7 +44,7 @@ export const QUIZ_LIST: QuizData[] = [
         speaker: "hiori",
         text: "ストローという文字が①〜④に入るのかな",
       },
-      { speaker: "mano", text: "四角と丸数字には何かの「歌詞」が入るよ" },
+      { speaker: "mano", text: "四角と丸数字にはある曲の「歌詞」が入るよ" },
       { speaker: "meguru", text: "Q1... KAWAIIとは..." },
     ],
   },
@@ -60,7 +60,10 @@ export const QUIZ_LIST: QuizData[] = [
         text: "なんだか見覚えがある気がするんだけど...",
       },
       { speaker: "hiori", text: "位置関係が重要そうだね" },
-      { speaker: "mano", text: "事務所の中を思い出してみよう...！" },
+      {
+        speaker: "mano",
+        text: "「事務所の中」を思い出してみよう、例えば「黄色いもの」があったよね...？",
+      },
     ],
   },
   {
@@ -75,7 +78,7 @@ export const QUIZ_LIST: QuizData[] = [
         text: "何かの計算結果っぽい？",
       },
       { speaker: "mano", text: "うんっ 何かを「割り算」した結果だよ" },
-      { speaker: "hiori", text: "冬優子さんは 12 / 4 ってことか" },
+      { speaker: "hiori", text: "冬優子さんは 12 / 4 ってこと...？" },
     ],
   },
   {
@@ -89,7 +92,7 @@ export const QUIZ_LIST: QuizData[] = [
         speaker: "meguru",
         text: "色は283アイドルのカラーを表しているかも...？",
       },
-      { speaker: "hiori", text: "真ん中は七草さんと愛依さんかな 共通点は..." },
+      { speaker: "hiori", text: "真ん中は愛依さんと七草さんかな 共通点は..." },
       { speaker: "mano", text: "これは新幹線の路線図を表しているよ" },
     ],
   },
