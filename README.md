@@ -1,73 +1,34 @@
-# React + TypeScript + Vite
+# 🧩 Web謎解きゲーム
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ブラウザで手軽に挑戦できる、シングルページアプリケーション（SPA）構成の謎解きゲームです。  
 
-Currently, two official plugins are available:
+👉 **[公開URL](https://rosecapriccio.github.io/riddleeeee/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎮 ゲーム概要
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+全5問で構成された謎解きゲームです。（PCのブラウザ環境／スマートフォン対応）
+- **ボリューム**: 全5問（想定所要時間：10〜20分）
+- **解答システム**: 「ひらがな」で入力。回答はハッシュ化しておりカンニングを防ぐ
+- **3段階のヒント機能**: 段階的に解放されるヒントを各問題に用意。
 
-## Expanding the ESLint configuration
+### ユーザーを特定しない匿名データ分析（Google Analytics4連携）
+`react-ga4` を導入し、各問題の「クリアに要した時間」や「ヒントの使用率」を、Cookieを用いた個人を特定しない完全な匿名形式で収集しています。
+これにより、**問題の難易度設定をデータに基づいて可視化・分析**し、ゲームの難易度調整に活かします。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ 技術スタック
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| レイヤー | 技術・ツール | 用途 |
+| :--- | :--- | :--- |
+| **フロントエンド** | React, TypeScript | 
+| **ビルド環境** | Vite | 
+| **状態管理** | React Hooks | 
+| **データ分析** | Google Analytics 4 (GA4) | ユーザーのプレイ動向（離脱ポイントやクリア時間）の可視化 |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+当サイトは『アイドルマスターシャイニーカラーズ』の非公式二次創作 （ファンメイド）ゲームです。公式および関係企業様とは一切関係ありません。  
